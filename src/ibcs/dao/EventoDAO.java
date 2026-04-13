@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
  */
 
 public class EventoDAO {
-    public void salvar(String nome, String data){
+    public void salvar(String nome, String data, String tipo){
         
         String sql = "INSERT INTO evento (nome, data, tipo) VALUES (?, ?, ?)";
         
@@ -22,7 +22,7 @@ public class EventoDAO {
         PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setString(1, nome);
             stmt.setString(2, data);
-            stmt.setString(3, "evento");
+            stmt.setString(3, tipo);
             
             stmt.executeUpdate();
             
@@ -32,8 +32,7 @@ public class EventoDAO {
                 e.printStackTrace();
                 }
         
-          // System.out.println("Entrou no método salvar");
-          // System.out.println("Nome': " + nome);
+      
     }
     
     public void listar(){

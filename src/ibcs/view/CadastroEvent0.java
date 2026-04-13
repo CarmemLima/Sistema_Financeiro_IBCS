@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ibcs.view;
+
 import ibcs.dao.EventoDAO;
 
 /**
@@ -95,12 +96,12 @@ public class CadastroEvent0 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String descricao = txtDescricao.getText();
-        String data = txtData.getText();
-        //String tipo = txtTipo.getText();
+        String nome = txtNome.getText();
+        String data = txtData.getText(); 
+        String tipo = txtTipo.getText();
 
         EventoDAO dao = new EventoDAO();
-        dao.salvar(descricao, data);
+        dao.salvar(nome, data, tipo);
 
         javax.swing.JOptionPane.showMessageDialog(null, "Evento salvo!");
     }//GEN-LAST:event_jButton1ActionPerformed

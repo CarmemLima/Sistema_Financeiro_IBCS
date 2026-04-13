@@ -9,5 +9,11 @@ package ibcs.model;
  * @author Carmem
  */
 public class Venda {
+    private int id;
+    private int produtoId;
+    private int quantidade;
+    
+    
+    //getters e setters
     
 }
