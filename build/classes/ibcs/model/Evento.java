@@ -13,5 +13,6 @@ public class Evento {
     private String nome;
     private String data;
     private String tipo;
-    private String descricao;
+ 
+    //getters e setters
 }

@@ -9,5 +9,9 @@ package ibcs.model;
  * @author Carmem
  */
 public class Produto {
+    private int id;
+    private String nome;
+    private double preco;
     
+    //getters e setters
 }

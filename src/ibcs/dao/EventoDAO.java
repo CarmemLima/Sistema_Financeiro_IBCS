@@ -7,6 +7,7 @@ package ibcs.dao;
 import ibcs.database.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -35,9 +36,31 @@ public class EventoDAO {
       
     }
     
-    public void listar(){
+    public double calcularTotal(){
         
+        String sql = "SELECT SUM(p.preco * v.quantidade) AS total" +
+         "FROM venda v JOIN produto p ON v.produto_id = p.id";
+      
+        try (Connection conn = ConexaoBD.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                return rs.getDouble("total");
+                
+            }
+        } catch (Exception e){
+                e.printStackTrace();
+                }
+        
+        return 0;
     }
+        
+    
+    //public void listar(){}
+        
+    
+    
     
  
 }
